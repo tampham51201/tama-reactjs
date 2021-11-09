@@ -1,0 +1,175 @@
+.hero-slider{
+    height: 100vh;
+    max-height: 108rem;
+    overflow:hidden;
+    position: relative;
+    margin-bottom: 5rem;
+    margin-top: calc(#{$header-height} * -1);
+    @include tablet{
+        margin-top: calc(#{$header-tablet-height} * -1);
+   
+    }
+    @include mobile{
+        margin-top: calc(#{$header-mobile-height} * -1);
+    }
+    &__item{
+        @include flex(center,space-between);
+   
+        visibility: hidden;
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+    
+        @include tablet{
+            flex-direction: column-reverse;
+            padding-top: $header-tablet-height;
+        }
+        @include mobile{           
+            padding-top:unset;
+        }
+      
+        &.active{
+            visibility: visible;
+            pointer-events: visible;
+        }
+        &__info{   
+            width: 58%;
+           @include tablet{
+               width: 100%;
+                flex-grow: 1;
+
+           }
+            &__title,&__description{
+                margin-bottom: 5rem;
+                @include tablet{
+                    margin-bottom: 1.5rem;
+                }
+            }
+            &__title{
+                overflow: hidden;
+                font-size: 4.5rem;
+                font-family: 'M PLUS Rounded 1c', sans-serif;
+                font-weight:700;
+              
+                @include tablet{
+                    font-size: 2rem;
+                }
+        
+            }
+            &__description{
+                overflow: hidden;
+                color: $txt-second-color;
+                font-size: 1.5rem;
+                line-height: 2.25rem;
+                overflow: hidden;
+                @include tablet{
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+            }
+           
+            &__title > span ,
+            &__description > span ,
+            &__btn  button 
+
+            {
+                display: block;
+                transform: translateY(-100%);
+                transition: transform .5s ease ;
+            }
+            
+        }
+        &.active &__info{
+            &__title > span ,
+            &__description > span ,
+            &__btn  button     
+            {  
+                transform: translateY(0);
+        
+            }
+        }
+        &__img{       
+            height: 100%;    
+            position: relative;
+            z-index: 9999;
+            flex-grow: 1;
+            @include tablet{
+                height: 60%; 
+                width: 100%;
+                flex-grow: unset;
+                z-index: 98;
+                @include flex(center,center)
+            }
+            img{
+                position: absolute;
+                bottom: 0;
+                left: -5%;
+                height: 100vh;
+                z-index: 999999;
+                transform: scale(0) rotate(60deg);
+                transition: transform .4s cubic-bezier(0.175, 0.885, 0.32, 1.275) ;
+                @include tablet{  
+                    position: relative;
+                    height: 100%;
+                }
+               
+            }
+            .shape{
+                $size:37.2rem;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: $size;
+                height: $size;
+                border-radius:30% 70% 73% 27% / 30% 29% 71% 70% ;
+                animation: border 7s ease infinite;
+                @include tablet{  
+                    $size:22.5rem;
+                    width: $size;
+                    height: $size;
+                }
+            }
+        }
+        &.active &__img >img{
+            transform: scale(1) rotate(0);
+        }
+    }
+    &__control{
+        @include flex(center,center);
+        position: absolute;
+        bottom: 3rem;
+        color: $box-shadow;
+        left: 0;
+        width: 100%;
+        font-size: 1.5rem;
+        @include mobile{
+            bottom: 0rem
+        }
+    &__index{
+        font-size: 1.3rem;
+        margin: 0 1rem;
+    }
+    i{
+        @include flex(center,center)
+        
+    }
+
+     
+      
+        
+    }
+}
+   
+
+@keyframes border {
+    0% {
+        border-radius: 32% 68% 56% 44% / 45% 42% 58% 55%  ;
+    }
+    50% {
+        border-radius:58% 42% 31% 69% / 30% 40% 60% 70%  ;
+    }
+    100% {
+        border-radius: 32% 68% 56% 44% / 45% 42% 58% 55%  ;
+    }
+}

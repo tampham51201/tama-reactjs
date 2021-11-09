@@ -1,0 +1,25 @@
+.footer{
+    padding: 7rem 0;
+    font-size: 1.1rem;
+    box-shadow: $box-shadow;
+    &__logo{
+        height: 3.8rem;
+    }
+    &__about{
+        p{
+            margin-bottom: 2rem;
+        }
+    }
+    &__title{
+        text-transform: uppercase;
+     
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+    &__content{
+        p{
+            margin-bottom: 1.25rem;
+        }
+
+    }
+}

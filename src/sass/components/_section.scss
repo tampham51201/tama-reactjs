@@ -1,0 +1,13 @@
+.section{
+    margin-bottom: 8rem;
+    &>* ~ *{
+        margin-top: 7rem;
+  
+    }
+
+    &__title{
+        text-transform: uppercase;
+        font-size: 2rem;
+        text-align: center;
+    }
+}

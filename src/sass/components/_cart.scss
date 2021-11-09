@@ -1,0 +1,112 @@
+.cart{
+    @include flex(flex-start,flex-start);
+
+    @include tablet{
+        flex-direction: column;
+        align-items: center;
+    }
+    &__info{
+        position: sticky;
+        margin-top: 2rem;
+        margin-right: 3rem;
+        width: 40%;
+        padding: 2rem;
+        box-shadow: $box-shadow;
+        color: $txt-second-color;
+        font-weight: 500;
+        @include tablet{
+            width: 100%;
+            margin: 2rem;
+        }
+        &__txt{
+            *{
+                margin-bottom: 1.6rem ;
+            }
+            &__price{
+                @include flex(center,space-between);
+                span:nth-child(2){
+                    color: $main-color;
+                   font-size: 1.8rem;
+                    font-weight: 600;
+
+                }
+            }
+        }
+        &__btn 
+        {
+           button{
+               width: 100%;
+           }
+            &>*{
+            
+                margin-bottom: 1.4rem;       
+                
+            }
+        }
+    }
+    &__list{
+        flex: 1;
+        @include tablet{
+            padding: 0 2rem;
+            width: 100%;
+            margin: 0 2rem
+        }
+    }
+    &__item{
+        @include flex(center,flex-start);
+
+        &__img{
+            margin-right: 2rem;
+            margin-bottom: 2rem;
+            img{
+                height: 12rem;
+            }
+            
+        }
+        &__info{
+            flex-grow: 1;
+            @include flex(center,space-between);
+            @include mobile{
+              
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+              
+            }
+            &__name{
+                width: 40%;
+                @include mobile{
+              
+                    width: 100%;
+                  
+                }
+            }
+            &__name,&__price{
+
+                font-size: 1.4rem;
+                @include mobile{
+              
+                    width: 100%;
+                 margin-bottom: .6rem; 
+                }
+            }
+            &__quantity{
+                @include mobile{
+              
+                   
+                 margin-bottom: .6rem; 
+                }
+
+            }
+            &__del{
+                font-size: 1.8rem;
+                cursor: pointer;
+                transition: all ease .3s;
+                &:hover{
+                    color: $main-color;
+                }
+            }
+    
+        }
+    }
+}
